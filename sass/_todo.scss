@@ -1,0 +1,25 @@
+
+
+.form-area {
+	display: flex;
+	input {
+		height: 50px;
+		font-size: 1.4rem;
+		padding: 0 20px;
+		outline: none;
+		box-shadow: none;
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+	.btn {
+		background: #6c757d;
+		color: #fff;
+		padding: 0 20px;
+		font-size: 1.8rem;
+		outline: none;
+		box-shadow: none;
+
+	}
+}
