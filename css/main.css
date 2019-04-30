@@ -131,3 +131,18 @@ a:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
+.single-task {
+  background: #cfcfcf;
+  height: 120px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.single-task span {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
