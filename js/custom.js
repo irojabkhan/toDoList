@@ -7,7 +7,6 @@ window.onload = function() {
 	const addTaskBtn = document.getElementById('addTaskBtn')
 	const allTalk = document.getElementById('allTask')
 
-
 	// Create Task
 	taskField.addEventListener('keypress', function(event) {
 		if(event.keyCode === 13 && this.value != '') {
@@ -16,12 +15,12 @@ window.onload = function() {
 		}
 	})
 
-	// addTaskBtn.addEventListener('click', function(event) {
-	// 	if(event.target.value != '') {
-	// 		creatTask(allTalk, event.target.value)
-	// 		this.value = ''
-	// 	}
-	// })
+	addTaskBtn.addEventListener('click', function(event) {
+		if(taskField.value != '') {
+			creatTask(allTalk, taskField.value)
+			taskField.value = ''
+		}
+	})
 
 	// Single Task Create 
 	function creatTask(allTaskParent, task) {
