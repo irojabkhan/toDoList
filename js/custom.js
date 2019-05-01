@@ -46,11 +46,40 @@ window.onload = function() {
 		col.appendChild(singleTask)
 		allTaskParent.appendChild(col)
 
+		let taskController = createTaskController(singleTask)
+		singleTask.appendChild(taskController)
 	}
 
+	function createTaskController(parent) {
+		let controlPanel = document.createElement('div')
+		controlPanel.setAttribute('class', 'task-control')
 
+		let colorPallete = createColorPallete(parent)
+		controlPanel.appendChild(colorPallete)
 
+		return controlPanel
+	}
 
+	function createColorPallete(parent) {
+		let colors = ['palegreen', 'skyblue', 'powderblue', 'salmon', 'grey', 'red']
+
+		let colorPallete = document.createElement('div')
+		colorPallete.setAttribute('class', 'color-pallete')
+
+		colors.forEach(function(color) {
+			let colorDiv = document.createElement('div')
+
+			colorDiv.setAttribute('class', 'color-circle')
+			colorDiv.style.background = color
+			colorPallete.appendChild(colorDiv)
+
+			colorDiv.addEventListener('click', function() {
+				parent.style.background = color
+			})
+		})
+
+		return colorPallete
+	}
 
 
 
