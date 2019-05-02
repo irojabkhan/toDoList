@@ -31,6 +31,9 @@
 	border-radius: 5px;
 	margin-bottom: 30px;
 	position: relative;
+	p {
+		margin-bottom: 0;
+	}
 	span {
 		position: absolute;
 		top: 10px;
@@ -47,6 +50,8 @@
 		opacity: 0;
 		transition: all .3s ease;
 		display: flex;
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
 		.color-pallete {
 			display: flex;
 			align-items: center;
@@ -56,8 +61,25 @@
 				width: 20px;
 				border-radius: 50%;
 				margin-right: 10px;
+				cursor: pointer;
 			}
 		}
+		span {
+			color: $white;
+		}
+	}
+	textarea {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+		width: 100%;
+		outline: none;
+		padding: 10px 20px;
+		resize: none;
+		border-radius: 5px;
 	}
 	&:hover {
 		.task-control {

@@ -141,6 +141,10 @@ a:focus {
   position: relative;
 }
 
+.single-task p {
+  margin-bottom: 0;
+}
+
 .single-task span {
   position: absolute;
   top: 10px;
@@ -162,6 +166,8 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .single-task .task-control .color-pallete {
@@ -179,6 +185,25 @@ a:focus {
   width: 20px;
   border-radius: 50%;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.single-task .task-control span {
+  color: #ffffff;
+}
+
+.single-task textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  outline: none;
+  padding: 10px 20px;
+  resize: none;
+  border-radius: 5px;
 }
 
 .single-task:hover .task-control {

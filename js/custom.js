@@ -50,6 +50,7 @@ window.onload = function() {
 		singleTask.appendChild(taskController)
 	}
 
+	// Task Controller Creating
 	function createTaskController(parent) {
 		let controlPanel = document.createElement('div')
 		controlPanel.setAttribute('class', 'task-control')
@@ -57,9 +58,13 @@ window.onload = function() {
 		let colorPallete = createColorPallete(parent)
 		controlPanel.appendChild(colorPallete)
 
+		let edit = createEditBtn(parent)
+		controlPanel.appendChild(edit)
+
 		return controlPanel
 	}
 
+	// Creating Color Pallete
 	function createColorPallete(parent) {
 		let colors = ['palegreen', 'skyblue', 'powderblue', 'salmon', 'grey', 'red']
 
@@ -81,10 +86,33 @@ window.onload = function() {
 		return colorPallete
 	}
 
+	// Creating Edit Button
+	function createEditBtn(parent) {
+		let span = document.createElement('span')
+		span.innerHTML = '<i class="fas fa-edit"></i>'
 
+		let textEditor = document.createElement('textarea')
+		parent.appendChild(textEditor)
 
+		let p = parent.querySelector('p')
 
+		textEditor.innerHTML = event.target.value
 
+		textEditor.style.display = 'none'
+
+		span.addEventListener('click', function() {
+			textEditor.style.display = 'block'
+		})
+		
+		textEditor.addEventListener('keypress', function() {
+			if(event.keyCode === 13 && textEditor.innerHTML != '') {
+				p.innerHTML = textEditor.value
+				textEditor.style.display = 'none'
+			}
+		})
+
+		return span 
+	}
 
 
 }
