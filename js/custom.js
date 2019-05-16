@@ -1,5 +1,5 @@
 
-const URL = '../toDoList/data.json'
+const URL = 'https://todo-app-be0aa.firebaseio.com/todo.json'
 
 const taskField = document.getElementById('taskField')
 const addTaskBtn = document.getElementById('addTaskBtn')
@@ -9,37 +9,34 @@ window.onload = function() {
 
 	// Get Data from Server
 	axios.get(URL)
-	.then(res => {
-		res.data.forEach(user => {
-			creatTask(allTask, user.text)
-		});
-	})
-	.catch(err => console.log(err))
-
-	// Post Data to Server
-	// axios.post(URL, {
-	// 	text: 'hey'
-	// })
-	// .then(res => {
-	// 	console.log(res);
-	//   })
-	// .catch(err => console.log(err))
+		.then(res => Object.keys(res.data).map(id => creatTask(allTask, res.data[id].text)))
+		.catch(err => console.log(err))
 
 	// Create Task
-	taskField.addEventListener('keypress', function(event) {
-		if(event.keyCode === 13 && this.value != '') {
-			creatTask(allTask, event.target.value)
-			this.value = ''
-		}
-	})
-
 	addTaskBtn.addEventListener('click', function(event) {
 		if(taskField.value != '') {
-			creatTask(allTask, taskField.value)
-			taskField.value = ''
+			createNewTask()
+		}
+	})
+	
+	taskField.addEventListener('keypress', function(event) {
+		if(event.keyCode === 13 && this.value != '') {
+			createNewTask()
 		}
 	})
 
+}
+
+function createNewTask() {
+
+	axios.post(URL, {
+		text: taskField.value
+	})
+		.then(res => {
+			creatTask(allTask, taskField.value)
+			taskField.value = ''
+		})
+		.catch(res => console.log(err))
 }
 
 // Single Task Create 
